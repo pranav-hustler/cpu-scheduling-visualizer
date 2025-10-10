@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduling Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>⚡ CPU Scheduling Algorithm Visualizer</h1>
+            <p>Interactive visualization of CPU scheduling algorithms with real-time metrics</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="input-section">
+                <h2>➕ Add Process</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label>Process ID:</label>
+                        <input type="text" id="processId" value="P1" placeholder="P1">
+                    </div>
+                    <div class="input-field">
+                        <label>Arrival Time:</label>
+                        <input type="number" id="arrivalTime" value="0" min="0">
+                    </div>
+                    <div class="input-field">
+                        <label>Burst Time:</label>
+                        <input type="number" id="burstTime" value="5" min="1">
+                    </div>
+                    <div class="input-field">
+                        <label>Priority:</label>
+                        <input type="number" id="priority" value="1" min="1">
+                    </div>
+                    <button onclick="addProcess()" class="btn primary">Add Process</button>
+                </div>
+            </div>
+
+            <div class="algorithm-section">
+                <h2>🎯 Select Algorithm</h2>
+                <div class="algorithm-buttons">
+                    <button onclick="runAlgorithm('fcfs')" class="btn algo-btn">FCFS</button>
+                    <button onclick="runAlgorithm('sjf')" class="btn algo-btn">SJF</button>
+                    <button onclick="runAlgorithm('priority')" class="btn algo-btn">Priority</button>
+                    <button onclick="runAlgorithm('rr')" class="btn algo-btn">Round Robin</button>
+                </div>
+                <div class="quantum-input" id="quantumInput" style="display: none;">
+                    <label>Time Quantum:</label>
+                    <input type="number" id="timeQuantum" value="2" min="1">
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button onclick="loadSampleData()" class="btn secondary">📋 Load Sample</button>
+                <button onclick="resetAll()" class="btn danger">🔄 Reset All</button>
+                <button onclick="compareAll()" class="btn success">📊 Compare All</button>
+            </div>
+        </div>
+
+        <!-- Process Table -->
+        <div class="process-table-container">
+            <h2>📝 Process List</h2>
+            <table id="processTable">
+                <thead>
+                    <tr>
+                        <th>Process ID</th>
+                        <th>Arrival Time</th>
+                        <th>Burst Time</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="processTableBody">
+                    <tr>
+                        <td colspan="5" class="empty-state">No processes added. Add a process to begin!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Visualization Area -->
+        <div class="visualization-area" id="visualizationArea" style="display: none;">
+            <h2 id="currentAlgorithm">Algorithm: None</h2>
+            
+            <!-- Gantt Chart -->
+            <div class="gantt-container">
+                <h3>Gantt Chart</h3>
+                <div class="gantt-chart" id="ganttChart"></div>
+                <div class="gantt-timeline" id="ganttTimeline"></div>
+            </div>
+
+            <!-- Metrics Table -->
+            <div class="metrics-container">
+                <h3>Performance Metrics</h3>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Arrival</th>
+                            <th>Burst</th>
+                            <th>Completion</th>
+                            <th>Turnaround</th>
+                            <th>Waiting</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody id="metricsTableBody"></tbody>
+                    <tfoot>
+                        <tr class="average-row">
+                            <td colspan="4"><strong>Average:</strong></td>
+                            <td id="avgTurnaround">-</td>
+                            <td id="avgWaiting">-</td>
+                            <td id="avgResponse">-</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Algorithm Explanation -->
+            <div class="explanation-box" id="explanationBox">
+                <h3>📖 How It Works</h3>
+                <p id="explanationText"></p>
+            </div>
+        </div>
+
+        <!-- Comparison Area -->
+        <div class="comparison-area" id="comparisonArea" style="display: none;">
+            <h2>📊 Algorithm Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card" id="fcfsCard"></div>
+                <div class="comparison-card" id="sjfCard"></div>
+                <div class="comparison-card" id="priorityCard"></div>
+                <div class="comparison-card" id="rrCard"></div>
+            </div>
+            <div class="comparison-chart">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
