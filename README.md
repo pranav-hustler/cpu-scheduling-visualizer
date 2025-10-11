@@ -29,7 +29,7 @@ An interactive web-based tool for visualizing four fundamental CPU scheduling al
 
 ## 🚀 Live Demo
 
-👉 [View Live Demo](https://YOUR_USERNAME.github.io/cpu-scheduling-visualizer/)
+👉 [View Live Demo](https://pranav-hustler.github.io/cpu-scheduling-visualizer/)
 
 ## 📸 Screenshots
 
@@ -39,16 +39,3 @@ An interactive web-based tool for visualizing four fundamental CPU scheduling al
 ### Round Robin Execution
 ![Round Robin](screenshots/screenshot_6_round_robin.png)
 
-## 🛠️ Installation
-
-No installation required! Just open `index.html` in any modern browser.
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/cpu-scheduling-visualizer.git
-
-# Navigate to project directory
-cd cpu-scheduling-visualizer
-
-# Open in browser
-https://pranav-hustler.github.io/cpu-scheduling-visualizer/
