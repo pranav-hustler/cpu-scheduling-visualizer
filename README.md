@@ -34,8 +34,8 @@ An interactive web-based tool for visualizing four fundamental CPU scheduling al
 ## 📸 Screenshots
 
 ### Algorithm Comparison
-![Comparison](screenshots/screenshot_7_comparison.png)
+![Comparison](screenshot_7_comparison.png)
 
 ### Round Robin Execution
-![Round Robin](screenshots/screenshot_6_round_robin.png)
+![Round Robin](screenshot_6_round_robin.png)
 
