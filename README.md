@@ -2,7 +2,7 @@
 
 An interactive web-based tool for visualizing four fundamental CPU scheduling algorithms: FCFS, SJF, Priority Scheduling, and Round Robin.
 
-![CPU Scheduling Visualizer](screenshots/screenshot_7_comparison.png)
+![CPU Scheduling Visualizer](screenshot_7_comparison.png)
 
 ## 🎯 Features
 
